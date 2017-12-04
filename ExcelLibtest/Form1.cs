@@ -57,6 +57,31 @@ namespace ExcelLibtest
             MessageBox.Show(Convert.ToString(startDate - DateTime.Now));
             MessageBox.Show(Convert.ToString(result.StartPeriodDate));
             MessageBox.Show(lbase.SubscriberList.Count.ToString());
+
+            excel.Dispose();
+            excel = null;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Convert.ToString(lbase.SubscriberList[0].ConnectionsList.Count));
+
+            int i = 0;
+            while(i < lbase.SubscriberList.Count)
+            {
+                int j = 0;
+                string msg = lbase.SubscriberList[i].Number + "\n";
+                while(j < lbase.SubscriberList[i].ConnectionsList.Count)
+                {
+                    msg += lbase.SubscriberList[i].ConnectionsList[j].IOTarget + "\n";
+
+                    j++;
+                }
+
+                MessageBox.Show(Convert.ToString(lbase.SubscriberList[i].ConnectionsList.Count));
+
+                i++;
+            }
         }
     }
 }
